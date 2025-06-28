@@ -1,12 +1,66 @@
-# React + Vite
+# 🚀 Mon projet React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce projet est développé avec **React** et utilise **React Router DOM** pour la navigation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Installation et utilisation
 
-## Expanding the ESLint configuration
+### 1. Cloner le projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/DepardieuDevWeb/System-authentication.git
+cd System-authentication
+```
+
+### 2. Installer Node.js
+
+Si tu n'as pas encore Node.js, installe-le ici :  
+👉 [https://nodejs.org/](https://nodejs.org/) (Version 18 ou plus recommandée)
+
+### 3. Installer les dépendances
+
+Utilise le gestionnaire de paquets que tu préfères :
+
+#### Avec npm
+
+```
+npm install
+```
+
+### 4. Lancer le serveur de développement
+
+```
+npm run dev
+```
+
+---
+
+## 🧭 Fonctionnalités
+
+- SPA avec **React Router DOM**
+- Architecture propre
+- Composants réutilisables
+- (Ajouter ici d'autres fonctionnalités si nécessaire)
+
+---
+
+## 📁 Variables d'environnement
+
+Si le projet utilise un fichier `.env`, pense à :
+
+- Créer un fichier `.env` à la racine
+- Ou utiliser le fichier `.env.example` s'il est fourni
+
+---
+
+## 🛠 Prérequis
+
+- [Node.js](https://nodejs.org/) (v18 ou + recommandé)
+- npm / yarn / pnpm
+
+---
+
+## 🧑‍💻 Auteur
+
+- [Depardieu Nguetebe](https://github.com/DepardieuDevWeb)
