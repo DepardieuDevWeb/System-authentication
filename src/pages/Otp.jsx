@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Otp = () => {
   const BASE_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
-    password: "",
+    otp: "",
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState();
@@ -20,23 +20,24 @@ const Login = () => {
     setMessage("");
 
     try {
-      const res = await fetch(`${BASE_URL}/login/`, {
+      const res = await fetch(`${BASE_URL}/verify/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           username: formData.username,
-          password: formData.password,
+          password: formData.otp,
         }),
       });
-      const response = await res.json();
-      if (response.message) {
-        setMessage("Connexion réussie");
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage("Confirmation réussie");
         setTypeMessage("success");
-        navigate("/otp");
+        navigate("/confirmation");
       } else {
-        setMessage(response.detail || "Echec de la connexion");
+        setMessage(data.detail || "Echec de la confirmation");
         setTypeMessage("error");
       }
     } catch (error) {
@@ -47,7 +48,8 @@ const Login = () => {
   };
   return (
     <div className="home">
-      <h1>Se connecter</h1>
+      <h1>Confirmation</h1>
+      <p>Un code de vérification a été envoyé par WhatsApp.</p>
       {message && (
         <div
           className={`alert ${
@@ -64,23 +66,17 @@ const Login = () => {
           onChange={(val) => setFormData({ ...formData, username: val })}
         />
         <Input
-          type="password"
-          value={formData.password}
-          placeholder="Entrer votre mot de passe"
-          onChange={(val) => setFormData({ ...formData, password: val })}
+          type="otp"
+          value={formData.otp}
+          placeholder="Code OTP"
+          onChange={(val) => setFormData({ ...formData, otp: val })}
         />
-        <p>
-          Vous n'avez pas de compte?{" "}
-          <span>
-            <Link to="/inscription">S'inscrire</Link>
-          </span>
-        </p>
         <button type="submit" disabled={loading}>
-          {loading ? "Connexion en cours..." : "Se connecter"}
+          {loading ? "Verification..." : "Valider"}
         </button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Otp;
